@@ -2,7 +2,6 @@ package th.ac.ku.atm.service;
 
 import org.springframework.stereotype.Service;
 import th.ac.ku.atm.model.BankAccount;
-import th.ac.ku.atm.model.Customer;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ public class BankAccountService {
     }
 
     public void createBankAccount(BankAccount bankAccount) {
-
+        bankAccountList.add(bankAccount);
     }
 
     public List<BankAccount> getBankAccounts() {
