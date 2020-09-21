@@ -1,9 +1,16 @@
 package th.ac.ku.atm.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Customer {
+    @Id
     private int id;
     private String name;
     private String pin;
+
+    public Customer(){}
 
     public Customer(int id, String name, String pin) {
         this.id = id;
@@ -15,9 +22,7 @@ public class Customer {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) { this.id = id; }
 
     public String getName() {
         return name;
