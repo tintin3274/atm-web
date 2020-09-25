@@ -19,15 +19,20 @@ public class BankAccountController {
     }
 
     @GetMapping
-    public String getBankAccountPage(Model model){
-        //model.addAttribute("allBankAccounts", bankAccountService.getBankAccounts());
+    public String getBankAccountPage(Model model) {
+        model.addAttribute("bankaccounts", bankAccountService.getBankAccounts());
         return "bankaccount";
     }
 
-//    @PostMapping
-//    public String registerBankAccount(@ModelAttribute BankAccount bankAccount, Model model) {
-//        bankAccountService.createBankAccount(bankAccount);
-//        model.addAttribute("allBankAccounts", bankAccountService.getBankAccounts());
-//        return "redirect:bankaccount";
-//    }
+    @PostMapping
+    public String openAccount(@ModelAttribute BankAccount bankAccount, Model model) {
+        bankAccountService.openBankAccount(bankAccount);
+        model.addAttribute("bankaccounts",bankAccountService.getBankAccounts());
+        // **** Error ****
+        // @ModelAttribute Field error in object 'bankAccount' on field 'id': rejected value [null]
+        // now fixed temporary by bankaccount.html use hardcode id -1 "<input type="hidden" name="id" value="-1"/>"
+        //System.out.println(bankAccount.toString());
+        // ***************;
+        return "redirect:bankaccount";
+    }
 }

@@ -25,4 +25,19 @@ public class BankAccountService {
         BankAccount[] accounts = response.getBody();
         return Arrays.asList(accounts);
     }
+
+    public List<BankAccount> getBankAccounts(){
+        String url = "http://localhost:8091/api/bankaccount";
+
+        ResponseEntity<BankAccount[]> response =
+                restTemplate.getForEntity(url, BankAccount[].class);
+        BankAccount[] accounts = response.getBody();
+        return Arrays.asList(accounts);
+    }
+
+    public void openBankAccount(BankAccount bankAccount) {
+        String url = "http://localhost:8091/api/bankaccount";
+
+        restTemplate.postForObject(url, bankAccount, BankAccount.class);
+    }
 }
