@@ -12,6 +12,7 @@
 <div class="container" layout:fragment="content">
     <h1>Open Bank Account</h1>
     <form action="#" th:action="@{/bankaccount}" method="POST">
+
         <input type="hidden" name="id" value="-1"/>
 
         <div class="form-group">
@@ -42,6 +43,7 @@
             <th>CustomerId</th>
             <th>Type</th>
             <th>Balance</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -50,6 +52,7 @@
             <td th:text="${bankAccount.customerId}"></td>
             <td th:text="${bankAccount.type}"></td>
             <td th:text="${bankAccount.balance}"></td>
+            <td><a class="btn btn-primary" th:href="@{/bankaccount/edit/{id}(id=${bankAccount.id})}">Edit</a></td>
         </tr>
         </tbody>
     </table>
