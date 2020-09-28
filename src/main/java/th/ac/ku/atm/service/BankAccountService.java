@@ -55,4 +55,9 @@ public class BankAccountService {
                 bankAccount.getId();
         restTemplate.put(url, bankAccount);
     }
+
+    public void deleteBankAccount(int id) {
+        String url = "http://localhost:8091/api/bankaccount/" + id;
+        restTemplate.delete(url);
+    }
 }
